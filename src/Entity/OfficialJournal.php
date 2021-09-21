@@ -6,6 +6,7 @@ use App\Repository\OfficialJournalRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="journauxOfficiels")
  * @ORM\Entity(repositoryClass=OfficialJournalRepository::class)
  */
 class OfficialJournal
@@ -18,7 +19,7 @@ class OfficialJournal
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=190)
+     * @ORM\Column(name="denomination",type="string", length=190,unique=true)
      */
     private $name;
 
@@ -28,12 +29,12 @@ class OfficialJournal
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="annee",type="string", length=255)
      */
     private $year;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="numero",type="string", length=255)
      */
     private $number;
 
@@ -43,17 +44,17 @@ class OfficialJournal
     private $pages;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="localisation",type="string", length=255)
      */
     private $location;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="disponible",type="boolean")
      */
     private $available;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(name="observation",type="text", nullable=true)
      */
     private $observation;
 

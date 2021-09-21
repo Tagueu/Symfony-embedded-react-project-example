@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\LatinExpressionRepository;
+use App\Repository\DocumentarySourceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="expressionsLatines")
- * @ORM\Entity(repositoryClass=LatinExpressionRepository::class)
+ * @ORM\Table(name="soucesDocumentaires")
+ * @ORM\Entity(repositoryClass=DocumentarySourceRepository::class)
  */
-class LatinExpression
+class DocumentarySource
 {
     /**
      * @ORM\Id
@@ -22,28 +22,28 @@ class LatinExpression
      * @ORM\Column(name="libelle",type="string", length=190, unique=true)
      */
     private $title;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Theme",
-     * cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $theme;
 
     /**
-     * @ORM\Column(name="origine",type="string", length=255)
+     * @ORM\Column(name="references",type="string", length=255)
+     */
+    private $dReferences;
+
+    /**
+     * @ORM\Column(name="origin",type="string", length=255)
      */
     private $origin;
 
     /**
-     * @ORM\Column(name="signification",type="string", length=255)
+     * @ORM\Column(name="disponible",type="boolean")
      */
-    private $meaning;
+    private $available;
 
     /**
      * @ORM\Column(name="observations",type="text", nullable=true)
      */
     private $observation;
+
+    
 
     public function getId(): ?int
     {
@@ -62,26 +62,27 @@ class LatinExpression
         return $this;
     }
 
-    public function getOrigin(): ?string
+    public function getDReferences(): ?string
     {
-        return $this->origin;
+        return $this->dReferences;
     }
 
-    public function setOrigin(string $origin): self
+    public function setDReferences(string $dReferences): self
     {
-        $this->origin = $origin;
+        $this->dReferences = $dReferences;
 
         return $this;
     }
 
-    public function getMeaning(): ?string
+
+    public function getAvailable(): ?bool
     {
-        return $this->meaning;
+        return $this->available;
     }
 
-    public function setMeaning(string $meaning): self
+    public function setAvailable(bool $available): self
     {
-        $this->meaning = $meaning;
+        $this->available = $available;
 
         return $this;
     }
@@ -98,14 +99,14 @@ class LatinExpression
         return $this;
     }
 
-    public function getTheme(): ?Theme
+    public function getOrigin(): ?string
     {
-        return $this->theme;
+        return $this->origin;
     }
 
-    public function setTheme(?Theme $theme): self
+    public function setOrigin(string $origin): self
     {
-        $this->theme = $theme;
+        $this->origin = $origin;
 
         return $this;
     }
