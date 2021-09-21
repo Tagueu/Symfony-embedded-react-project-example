@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace myLaw\Controller;
+namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -19,7 +19,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeController extends Controller{
     //put your code here
     
-    public function indexAction(){
+    public function index(){
         
+        
+        return $this->render("base.html.twig", []);
     }
 }
