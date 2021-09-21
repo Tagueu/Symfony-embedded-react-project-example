@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\DisciplineRepository;
+use App\Repository\TypeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="disciplines")
- * @ORM\Entity(repositoryClass=DisciplineRepository::class)
+ * @ORM\Table(name="genre")
+ * @ORM\Entity(repositoryClass=TypeRepository::class)
  */
-class Discipline
+class Type
 {
     /**
      * @ORM\Id
@@ -19,12 +19,12 @@ class Discipline
     private $id;
 
     /**
-     * @ORM\Column(name="libelle",type="string", length=190, unique=true)
+     * @ORM\Column(name="libelle",type="string", length=190,unique=true)
      */
     private $title;
 
     /**
-     * @ORM\Column(name="observation",type="text", nullable=true)
+     * @ORM\Column(name="observations",type="text", nullable=true)
      */
     private $observation;
 

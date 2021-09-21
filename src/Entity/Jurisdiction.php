@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\DisciplineRepository;
+use App\Repository\JurisdictionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="disciplines")
- * @ORM\Entity(repositoryClass=DisciplineRepository::class)
+ * @ORM\Table(name="juridictions")
+ * @ORM\Entity(repositoryClass=JurisdictionRepository::class)
  */
-class Discipline
+class Jurisdiction
 {
     /**
      * @ORM\Id
@@ -24,7 +24,7 @@ class Discipline
     private $title;
 
     /**
-     * @ORM\Column(name="observation",type="text", nullable=true)
+     * @ORM\Column(name="observations",type="text", nullable=true)
      */
     private $observation;
 

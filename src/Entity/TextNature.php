@@ -6,6 +6,7 @@ use App\Repository\TextNatureRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="natureTextes")
  * @ORM\Entity(repositoryClass=TextNatureRepository::class)
  */
 class TextNature
@@ -18,7 +19,7 @@ class TextNature
     private $id;
 
     /**
-     * @ORM\Column(name="libelle", type="string", length=255, unique=true)
+     * @ORM\Column(name="libelle", type="string", length=190, unique=true)
      */
     private $title;
 
