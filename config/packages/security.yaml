@@ -1,14 +1,40 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders: 
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+        App\Entity\User:
+            algorithm: bcrypt
+            cost: 12
     providers:
         users_in_memory: { memory: null }
+        db_user_provider: 
+            entity: 
+                class: App\Entity\User
+                property: login
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: true
-            provider: users_in_memory
+            context: my_context
+        # I changed anonymous:true to anonymous null
+        # and removed user in memory
+        # I completely commented what follows because it was overlapping with the admin_user_area_firewall
+        #main:
+        #    anonymous: ~ 
+        #    provider: users_in_memory
+        #    context: my_context
+        admin_user_area:
+            pattern: /admin
+            form_login: 
+                login_path: user_login
+                check_path: user_check
+            provider: db_user_provider
+            logout:
+                path: user_logout
+                target: /
+            context: my_context
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -21,3 +47,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: /admin, roles: ROLE_ADMIN  }  
