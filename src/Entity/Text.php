@@ -56,6 +56,19 @@ class Text
      */
     private $documentarySources;
     
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\People",
+     * cascade={"persist"})
+     * @ORM\JoinTable(name="textes_personnes") 
+     */
+    private $authors;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type",
+     * cascade={"persist"})
+     */
+    private $type;
+    
       /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Discipline",
      * cascade={"persist"})
@@ -101,6 +114,7 @@ class Text
         $this->documentarySources = new ArrayCollection();
         $this->disciplines = new ArrayCollection();
         $this->articles = new ArrayCollection();
+        $this->authors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -308,6 +322,42 @@ class Text
     public function removeArticle(Article $article): self
     {
         $this->articles->removeElement($article);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|People[]
+     */
+    public function getAuthors(): Collection
+    {
+        return $this->authors;
+    }
+
+    public function addAuthor(People $author): self
+    {
+        if (!$this->authors->contains($author)) {
+            $this->authors[] = $author;
+        }
+
+        return $this;
+    }
+
+    public function removeAuthor(People $author): self
+    {
+        $this->authors->removeElement($author);
+
+        return $this;
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

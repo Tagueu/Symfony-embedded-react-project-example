@@ -30,6 +30,28 @@ class Article
      * @ORM\JoinTable(name="articles_themes") 
      */
     private $themes;
+    
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\People",
+     * cascade={"persist"})
+     * @ORM\JoinTable(name="articles_personnes") 
+     */
+    private $authors;
+    
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Publication",
+     * cascade={"persist"})
+     * @ORM\JoinTable(name="articles_publications") 
+     */
+    private $publications;
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type",
+     * cascade={"persist"})
+     */
+    private $type;
 
 
     /**
@@ -55,6 +77,8 @@ class Article
     public function __construct()
     {
         $this->themes = new ArrayCollection();
+        $this->authors = new ArrayCollection();
+        $this->publications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -142,6 +166,66 @@ class Article
     public function removeTheme(Theme $theme): self
     {
         $this->themes->removeElement($theme);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|People[]
+     */
+    public function getAuthors(): Collection
+    {
+        return $this->authors;
+    }
+
+    public function addAuthor(People $author): self
+    {
+        if (!$this->authors->contains($author)) {
+            $this->authors[] = $author;
+        }
+
+        return $this;
+    }
+
+    public function removeAuthor(People $author): self
+    {
+        $this->authors->removeElement($author);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Publication[]
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publication $publication): self
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications[] = $publication;
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): self
+    {
+        $this->publications->removeElement($publication);
+
+        return $this;
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
