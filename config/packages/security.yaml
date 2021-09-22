@@ -26,7 +26,8 @@ security:
         #    provider: users_in_memory
         #    context: my_context
         admin_user_area:
-            pattern: /admin
+            pattern: ^/
+            anonymous: ~
             form_login: 
                 login_path: user_login
                 check_path: user_check
@@ -47,4 +48,8 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: /admin, roles: ROLE_ADMIN  }  
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: (^/), roles: ROLE_ADMIN  }
+        #i put again open access role for profiler because i create a firewall that encompasses all the url 
+        - { path: /_wdt/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /_profiler/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
