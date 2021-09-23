@@ -1,19 +1,372 @@
+<!--
+=========================================================
+* Argon Dashboard - v1.2.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+
+
+* Copyright  Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+
+
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title> {% block title %} {% endblock %}</title>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icon-legal.png" type="image/png">
+  {% block stylesheets %}
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="assets/css/custom-base.css" type="text/css">
+  {% endblock %}
+</head>
+
+<body>
+  {%  block body %}
+  <!-- Sidenav -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <a class="navbar-brand" href="javascript:void(0)">
+          <img src="assets/icon-legal.png" class="navbar-brand-img" alt="...">
+        </a>
+      </div>
+      <div class="navbar-inner">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="examples/dashboard.html">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">Acceuil</span>
+              </a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link " href="examples/dashboard.html">
+                <i class="fa fa-anchor "></i>
+                <span class="nav-link-text">Faire une requete</span>
+              </a>
+            </li>
+            
+            
+            
+            
+            
+            
+          </ul>
+          <!-- Divider -->
+          <hr class="my-3">
+          <!-- Heading -->
+          <h6 class="navbar-heading p-0 text-muted">
+            <span class="docs-normal">Tables</span>
+          </h6>
+          <!-- Navigation -->
+          <ul class="navbar-nav mb-md-3 database-tables ">
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Nature des Textes</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Disciplines</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Thèmes</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Genre</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Abréviations</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Juridictions</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Expressions Latines</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Principe et adages</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Journaux officiels</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Proverbes</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Sources documentaires</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Codes</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Articles</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Textes</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Jurisprudences</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Publications</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="fa fa-table"></i>
+                <span class="nav-link-text">Auteurs, Contacts, Clients</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-header-base border-bottom">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Search form -->
+          {#
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+            <div class="form-group mb-0">
+              <div class="input-group input-group-alternative input-group-merge">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" placeholder="Search" type="text">
+              </div>
+            </div>
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>
+          #}
+          <!-- Navbar links -->
+          <ul class="navbar-nav align-items-center  mr-sm-auto ">
+              <big class="text-uppercase"><font color="white"><strong>Application  d'enregistrement et d'exploitation<br/>
+                      de donnnées juridiques du Cameroun</strong>
+                  </font>
+              </big>
+          </ul>
+          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="assets/img/custom/user_icon.png">
+                  </span>
+                  <div class="media-body  ml-2  d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold">{{app.user.firstName}} {{ app.user.name }}</span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu  dropdown-menu-right ">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Welcome!</h6>
+                </div>
+               
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-settings-gear-65"></i>
+                  <span>Settings</span>
+                </a>
+                
+                <div class="dropdown-divider"></div>
+                <a href="{{ path('user_logout') }}" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span> Logout </span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header bg-header-base pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+            <a href="#!" class="btn btn-sm btn-primary"><i class="fa fa-download" ></i> Exporter la base de données</a> 
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid ">
+      <div class="row">
+          <br/><br/>
+      </div>
+      <div class="row m-3">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Pages</h3>
+                </div>
+                <div class="col text-right">
+                  {# <a href="#!" class="btn btn-sm btn-primary">See all</a> #}
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Lien de la page </th>
+                    <th scope="col">Tables</th>
+                    <th scope="col">Intitulé</th>
+                    <th scope="col">Nombre de données</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      /tables/textNatures
+                    </th>
+                    <td>
+                      natureTextes
+                    </td>
+                    <td>
+                      Nature des Textes
+                    </td>
+                    <td>
+                      0
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /tables/disciplines
+                    </th>
+                    <td>
+                      disciplines
+                    </td>
+                    <td>
+                      Disciplines
+                    </td>
+                    <td>
+                      0
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        {#
+        <div class="col-xl-4">
+         
+        </div>
+        #}
+      </div>
+      <!-- Footer -->
+      <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center  text-lg-left  text-muted">
+              &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Legal Database</a>
+            </div>
+          </div>
+       
+        </div>
+      </footer>
+    </div>
+  </div>
+  {% endblock %}
+  {% block javascripts %}
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Optional JS -->
+  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+  <!-- Argon JS -->
+  <script src="assets/js/argon.js?v=1.2.0"></script>
+  {% endblock %}
+</body>
+
 </html>

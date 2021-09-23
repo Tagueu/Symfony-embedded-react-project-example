@@ -5,10 +5,11 @@
 .login-panel input::placeholder{
     color:black;
 }
-
+.login-panel input{
+    color:black!important;
+}
 .header{
     padding-top: 30px !important;
     padding-bottom: 70px !important;
-    background: linear-gradient(87deg, #4f4f53 0, #d2d1d7 100%) !important;
-    
+    background: linear-gradient(87deg, #4f4f53 0, #d2d1d7 100%) !important;  
 }
