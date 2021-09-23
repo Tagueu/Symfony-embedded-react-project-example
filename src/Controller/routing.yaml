@@ -4,7 +4,7 @@ index:
     
 user_login:
     path: /login
-    defaults: { _controller: 'App\Controller\HomeController::index' }
+    defaults: { _controller: 'App\Controller\HomeController::login' }
 
 user_admin_home:
     path: /admin/home

@@ -24,4 +24,10 @@ class HomeController extends Controller{
         
         return $this->render("base.html.twig", []);
     }
+    
+    public function login(){
+        
+        
+        return $this->render("login.html.twig", []);
+    }
 }
