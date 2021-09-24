@@ -15,3 +15,10 @@ and open the template in the editor.
 .database-tables .nav-link-text{
     color:black;
 }
+.table{
+    color:black;
+}
+
+form, form input {
+    color:black!important;
+}
