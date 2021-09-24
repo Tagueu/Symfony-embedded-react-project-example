@@ -10,6 +10,10 @@ settings_password_change:
     path: /settings/password
     defaults: { _controller: 'App\Controller\SettingsController::passwordChange' }
     
+user_table_dashboard:
+    path: /tables/{table_name}
+    defaults: { _controller: 'App\Controller\TableController::index' }
+    
 user_login:
     path: /login
     defaults: { _controller: 'App\Controller\HomeController::login' }
