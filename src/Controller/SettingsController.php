@@ -34,9 +34,9 @@ class SettingsController extends Controller{
         $newPasswordConfirm=$request->get("new_password_confirm");
         //check if oldPasssword is valid
         $user=$this->getUser();
-        $encoder_service = $this->get('security.encoder_factory');
-        $encoder = $encoder_service->getEncoder($user);
-        if($encoder->isPasswordValid($user->getPassword(),$oldPassword,$user->getSalt())){
+        //$encoder_service = $this->get('security.encoder_factory');
+        //$encoder = $encoder_service->getEncoder($user);
+        if($passEncoder->isPasswordValid($user,$oldPassword)){
             if($newPassword==$newPasswordConfirm){
             $encodedPassword= $passEncoder->encodePassword($user,$newPassword);
             $this->addFlash(TKAppConstants::$SUCCESS_TYPE, "Modification de mot de passe réussie");
