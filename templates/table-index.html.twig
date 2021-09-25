@@ -1,56 +1,46 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Configurer votre compte {% endblock %}
+{% block title %} Gestion de la table -- {% endblock %}
 
 {% block main_content %}
+    {# Passing twig varables to javascript #}
+    <script language="javascript"  >
+        var metaData = [];
+        {% for key, value in metaData %}
+            {% if not (key== "fields") %} metaData['{{key}}'] = '{{value}}';
+            {% else %}
+                var tkfields = [];
+
+                {% for kf, vf in metaData.fields %}
+
+                    var {{("afield"~kf)}}= [];
+                    {% for k, v in vf %}
+                       {{("afield"~kf)}}['{{k}}']='{{v}}';
+                    {% endfor %}
+                    tkfields['{{kf}}']={{("afield"~kf)}};
+                {% endfor %}
+                metaData['fields'] = tkfields;
+                console.log(metaData);
+            {% endif %}
+        {% endfor %}
+    </script>
+
     <div  class ="row">
 
         <h2>
-            <br/>
-            Changer votre mot de passe
+
+            Table --
+            {{ dump(metaData) }}
         </h2>
 
         <div class="container">
 
+
             <br/>
+            <center><button class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> Ajouter </button></center>
             <br/>
-            <form method='post' action="{{ path("settings_password_change") }}" >
-                <div class="row">
-                    <div class="col-lg-3">
-                        Ancien mot de passe
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="password" name="old_password" class="form-control" />
-                    </div>
-                </div>
-                <br/>
-                <div class="row">
-                    <div class="col-lg-3">
-                        Nouveau mot de passe
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="password" name="new_password" class="form-control" />
-                    </div>
-                </div>
-                <br/>
-                <div class="row">
-                    <div class="col-lg-3">
-                        Rettapez le nouveau mot de passe
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="password" name="new_password_confirm" class="form-control" />
-                    </div>
-                </div>
-                <br/>
-                <div class="row">
-                    
-                    <div class="col-lg-7">
-                        <center>
-                            <button class="btn btn-lg btn-primary"> Valider </button>
-                        </center>
-                    </div>
-                </div>
-            </form>
+            <div id="myReactTable">
+            </div>
         </div>
 
     </div>
@@ -67,4 +57,9 @@
     <br/>
     <br/>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/babel" src="{{ asset('react/tableManager.js') }}" />
 {% endblock %}

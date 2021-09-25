@@ -32,5 +32,13 @@ class TKTableConstants {
             ]
         ]
     ];
+    
+    public static function getMetaData($tableUrl){
+        $result = self::$URL_TO_METADATA[$tableUrl];
+        $entity = new $result["class"];
+        $result["fields"]=$entity->getMetaData();
+        $result["tableUrl"]=$tableUrl;
+        return $result;
+    }
 
 }

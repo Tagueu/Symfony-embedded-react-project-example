@@ -1,0 +1,8 @@
+## YAML Template.
+textNatures:
+    label: 'Nature des textes'
+    table: natureTextes
+    fields:
+        libelle:
+            type: text
+            label: 'libellé'

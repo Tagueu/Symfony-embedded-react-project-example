@@ -23,17 +23,17 @@
         <meta name="author" content="Creative Tim">
         <title> {% block title %} {% endblock %}</title>
         <!-- Favicon -->
-        <link rel="icon" href="assets/icon-legal.png" type="image/png">
+        <link rel="icon" href="{{ asset('assets/icon-legal.png') }}" type="image/png">
         {% block stylesheets %}
             <!-- Fonts -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
             <!-- Icons -->
-            <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
-            <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+            <link rel="stylesheet" href="{{ asset('assets/vendor/nucleo/css/nucleo.css') }}" type="text/css">
+            <link rel="stylesheet" href="{{ asset('assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
             <!-- Page plugins -->
             <!-- Argon CSS -->
-            <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
-            <link rel="stylesheet" href="assets/css/custom-base.css" type="text/css">
+            <link rel="stylesheet" href="{{ asset('assets/css/argon.css?v=1.2.0') }}" type="text/css">
+            <link rel="stylesheet" href="{{ asset('assets/css/custom-base.css') }}" type="text/css">
         {% endblock %}
     </head>
 
@@ -45,7 +45,7 @@
                     <!-- Brand -->
                     <div class="sidenav-header  align-items-center">
                         <a class="navbar-brand" href="javascript:void(0)">
-                            <img src="assets/icon-legal.png" class="navbar-brand-img" alt="...">
+                            <img src="{{ asset('assets/icon-legal.png') }}" class="navbar-brand-img" alt="...">
                         </a>
                     </div>
                     <div class="navbar-inner">
@@ -81,7 +81,7 @@
                             <!-- Navigation -->
                             <ul class="navbar-nav mb-md-3 database-tables ">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+                                    <a class="nav-link" href="{{ path('user_table_dashboard',{'table_name':'textNatures'}) }}" target="_blank">
                                         <i class="fa fa-table"></i>
                                         <span class="nav-link-text">Nature des Textes</span>
                                     </a>
@@ -232,7 +232,7 @@
                                     <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="media align-items-center">
                                             <span class="avatar avatar-sm rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/custom/user_icon.png">
+                                                <img alt="Image placeholder" src="{{ asset('assets/img/custom/user_icon.png') }}">
                                             </span>
                                             <div class="media-body  ml-2  d-none d-lg-block">
                                                 <span class="mb-0 text-sm  font-weight-bold">{{app.user.firstName}} {{ app.user.name }}</span>
@@ -384,16 +384,21 @@
         {% block javascripts %}
             <!-- Argon Scripts -->
             <!-- Core -->
-            <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-            <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-            <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+            <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+            <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ asset('assets/vendor/js-cookie/js.cookie.js') }}"></script>
+            <script src="{{ asset('assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
+            <script src="{{ asset('assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
             <!-- Optional JS -->
-            <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-            <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+            <script src="{{ asset('assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
+            <script src="{{ asset('assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
             <!-- Argon JS -->
-            <script src="assets/js/argon.js?v=1.2.0"></script>
+            <script src="{{ asset('assets/js/argon.js?v=1.2.0') }}"></script>
+            
+             <!-- React JS -->
+            <script src="{{ asset('react/react17.0.2.development.js') }}"></script>
+            <script src="{{ asset('react/react-dom17.0.2.development.js') }}"></script>
+            <script src="{{ asset('react/babel7.15.7.min.js') }}"></script>
         {% endblock %}
     </body>
 

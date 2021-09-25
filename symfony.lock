@@ -97,6 +97,12 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
     },
+    "league/flysystem": {
+        "version": "1.1.5"
+    },
+    "league/mime-type-detection": {
+        "version": "1.7.0"
+    },
     "monolog/monolog": {
         "version": "1.26.1"
     },
@@ -111,6 +117,15 @@
     },
     "phar-io/version": {
         "version": "3.1.0"
+    },
+    "philiplb/crudlex": {
+        "version": "0.14.0"
+    },
+    "philiplb/crudlexsymfony4bundle": {
+        "version": "0.1.0"
+    },
+    "philiplb/valdi": {
+        "version": "0.10.0"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -164,6 +179,12 @@
     },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "riimu/kit-phpencoder": {
+        "version": "v2.4.1"
+    },
+    "romaricdrigon/metayaml": {
+        "version": "dev-master"
     },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.2"
@@ -345,6 +366,9 @@
     },
     "symfony/intl": {
         "version": "v4.4.30"
+    },
+    "symfony/lts": {
+        "version": "4-dev"
     },
     "symfony/mailer": {
         "version": "4.3",
@@ -572,6 +596,18 @@
     },
     "theseer/tokenizer": {
         "version": "1.2.1"
+    },
+    "twig/extensions": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "a86723ee8d8b2f9437c8ce60a5546a1c267da5ed"
+        },
+        "files": [
+            "config/packages/twig_extensions.yaml"
+        ]
     },
     "twig/extra-bundle": {
         "version": "v3.3.3"

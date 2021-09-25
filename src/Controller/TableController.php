@@ -22,8 +22,8 @@ class TableController extends Controller{
     //put your code here
     
     public function index($table_name){
-        
-        return $this->render("table-index.html.twig", []);
+        $metaData= \App\Tool\TKTableConstants::getMetaData($table_name);
+        return $this->render("table-index.html.twig", ["metaData"=>$metaData]);
     }
     
 
