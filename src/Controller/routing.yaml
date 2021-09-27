@@ -14,6 +14,14 @@ user_table_dashboard:
     path: /tables/{table_name}
     defaults: { _controller: 'App\Controller\TableController::index' }
     
+user_table_search:
+    path: /tables/search/{table_name}
+    defaults: { _controller: 'App\Controller\TableController::search' }
+    
+user_table_create_edit:
+    path: /tables/edit/{table_name}
+    defaults: { _controller: 'App\Controller\TableController::createEdit' }
+    
 user_login:
     path: /login
     defaults: { _controller: 'App\Controller\HomeController::login' }

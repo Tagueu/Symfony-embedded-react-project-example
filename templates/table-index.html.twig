@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Gestion de la table -- {% endblock %}
+{% block title %} Gestion de la table {{ metaData.tableTitle }} {% endblock %}
 
 {% block main_content %}
     {# Passing twig varables to javascript #}
@@ -15,34 +15,29 @@
 
                     var {{("afield"~kf)}}= [];
                     {% for k, v in vf %}
-                       {{("afield"~kf)}}['{{k}}']='{{v}}';
+                        {{("afield"~kf)}}['{{k}}'] = '{{v}}';
                     {% endfor %}
-                    tkfields['{{kf}}']={{("afield"~kf)}};
+                        tkfields['{{kf}}'] ={{("afield"~kf)}} ;
                 {% endfor %}
-                metaData['fields'] = tkfields;
-                console.log(metaData);
+                    metaData['fields'] = tkfields;
+                    console.log(metaData);
             {% endif %}
         {% endfor %}
+        var searchUrl='{{path('user_table_search',{'table_name':metaData.tableUrl})}}';
+        var editUrl='{{path('user_table_create_edit',{'table_name':metaData.tableUrl})}}';
     </script>
 
     <div  class ="row">
 
         <h2>
 
-            Table --
-            {{ dump(metaData) }}
+            {{ metaData.tableTitle }}
         </h2>
-
-        <div class="container">
-
-
-            <br/>
-            <center><button class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> Ajouter </button></center>
-            <br/>
-            <div id="myReactTable">
-            </div>
+        
+        <div class="container" id="myReactContainer">
+          
         </div>
-
+       
     </div>
     <br/>
     <br/>
@@ -61,5 +56,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script type="text/babel" src="{{ asset('react/tableManager.js') }}" />
+    <script type="text/babel" src="{{ asset('react/tableManagerService.js') }}" ></script>
+    <script type="text/babel" src="{{ asset('react/tableManager.js') }}" > </script>
 {% endblock %}
