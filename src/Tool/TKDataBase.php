@@ -22,6 +22,12 @@ class TKDataBase {
         $qb=$entityManager->createQueryBuilder();
         $qb->from($entityMetaData["class"],"e");
         $qb->select("e");
+        if($queryMetaData!=null){
+            if(array_key_exists("id", $queryMetaData)){
+                $qb->where("e.id = :id");
+                $qb->setParameter('id',$queryMetaData["id"]);
+            }
+        }
         $qb->addOrderBy("e.id","desc");
 		$qb->setFirstResult(($page-1)*12);
 		$qb->setMaxResults(12);

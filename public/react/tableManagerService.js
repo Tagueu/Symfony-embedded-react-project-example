@@ -29,5 +29,19 @@ var TableService = new Object({
                 }
             });
     
+},
+editElement: function(cb,queryData){
+     $.ajax({
+                type: "POST",
+                url: editUrl,
+                data: queryData,
+                success: function (response) {
+                    var data = response;
+                    cb(data);     
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                    cb(null);
+                }
+            });
 }
 });
