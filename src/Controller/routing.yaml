@@ -21,6 +21,10 @@ user_table_search:
 user_table_create_edit:
     path: /tables/edit/{table_name}
     defaults: { _controller: 'App\Controller\TableController::createEdit' }
+  
+user_table_delete:
+    path: /tables/delete/{table_name}
+    defaults: { _controller: 'App\Controller\TableController::delete' }
     
 user_login:
     path: /login

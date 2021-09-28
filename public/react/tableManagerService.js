@@ -43,5 +43,21 @@ editElement: function(cb,queryData){
                     cb(null);
                 }
             });
+},
+deleteElement: function(cb,queryData){
+       
+       $.ajax({
+                type: "GET",
+                url: deleteUrl,
+                data: fromArrayToQueryString(queryData),
+                success: function (response) {
+                    var data = response;
+                    cb(data);     
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                    cb(null);
+                }
+            });
+    
 }
 });

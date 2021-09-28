@@ -64,6 +64,23 @@ class TableController extends Controller{
         return $this->json(["success"=>"OK"]);
     }
     
+    public function delete($table_name,Request $request){
+        $id=$request->get("id");
+        $metaData= \App\Tool\TKTableConstants::getMetaData($table_name);
+        $entityManager=$this->getDoctrine()->getManager();
+        $element = new $metaData["class"];
+        if($id!=null){
+            $repository=$entityManager->getRepository($metaData["class"]);
+            $element=$repository->find($id);
+            if($element!=null){
+            $entityManager->remove($element);
+            $entityManager->flush();
+            }
+        }
+        
+        return $this->json(["success"=>"OK"]);
+    }
+    
     
 
 

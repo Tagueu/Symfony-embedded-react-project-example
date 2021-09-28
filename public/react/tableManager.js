@@ -16,12 +16,15 @@ class DomTable extends React.Component {
             metaData: metaData,
             page: 1,
             elements: [],
-            editObject: editObject
+            editObject: editObject,
+            deleteId:null,
+            watchMode:false
         };
         this.searchElements.bind(this);
         this.submitEditObject.bind(this);
         this.handleInputFieldChange.bind(this);
         this.setAnEditObject.bind(this);
+        this.deleteAnObject.bind(this);
 
     }
 
@@ -55,6 +58,7 @@ class DomTable extends React.Component {
     }
     setAnEditObject(reactComponent, Id) {
         var edit = reactComponent.state.editObject;
+        reactComponent.setState({watchMode:false}); //to allow editing
         if (Id === null) {
             var editnew = {id: ''};
             Object.keys(reactComponent.state.metaData.fields).map((item, idx) => {
@@ -72,6 +76,15 @@ class DomTable extends React.Component {
                 }
             }, {id: Id});
         }
+    }
+    
+    deleteAnObject(reactComponent,id){
+        TableService.deleteElement((data)=>{
+            if (data !== null) {
+                //we update the table
+                reactComponent.searchElements();
+            }
+        },{id : id});
     }
     render() {
         return (
@@ -106,7 +119,7 @@ class DomTable extends React.Component {
                                                 {this.state.metaData.fields[item].name}
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="{this.state.metaData.fields[item].type}" value={this.state.editObject[item]} onChange={(e) => {
+                                                <input type="{this.state.metaData.fields[item].type}" disabled={this.state.watchMode} value={this.state.editObject[item]} onChange={(e) => {
                                                                                     this.handleInputFieldChange(e, this, item);
                                                                                        }} class="form-control"/>
                                             </div>
@@ -124,9 +137,16 @@ class DomTable extends React.Component {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={(e) => {
+                                    {(!this.state.watchMode)?
+                                    (
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={(e) => {
                                             this.submitEditObject(this);
                                                 }}>Enregistrer</button>
+                                    ):
+                                    (null)
+                                    }
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -154,11 +174,11 @@ class DomTable extends React.Component {
                                                             })}
                             
                                             <td>
-                                                <button className="btn btn-sm btn-warning"> <i className="fa fa-eye"></i></button>
+                                                <button className="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal" onClick={(e)=>{this.setAnEditObject(this, item['id']);this.setState({watchMode:true});}}> <i className="fa fa-eye"></i></button>
                                                 <button className="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={(e) => {
                                                                     this.setAnEditObject(this, item['id']);
                                                                         }}> <i className="fa fa-pen"></i> </button>
-                                                <button className="btn btn-sm btn-danger"> <i className="fa fa-trash"></i></button>
+                                                <button className="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" onClick={(e)=>{this.setState({deleteId:item['id']});}}> <i className="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                             );
@@ -168,6 +188,27 @@ class DomTable extends React.Component {
                             </tr>
                         </tbody>
                     </table>
+                    <div id="forDeletion">
+                        <div class="modal" tabindex="-1" role="dialog" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id='deleteModalLabel'>Suppression d'un élement</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Etes vous sure de vouloir supprimer l'élement d'identifiant {this.state.deleteId} ? </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={(e)=>{this.deleteAnObject(this,this.state.deleteId);}}>Confirmer</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 );
     }

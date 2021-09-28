@@ -25,6 +25,7 @@
         {% endfor %}
         var searchUrl='{{path('user_table_search',{'table_name':metaData.tableUrl})}}';
         var editUrl='{{path('user_table_create_edit',{'table_name':metaData.tableUrl})}}';
+        var deleteUrl='{{path('user_table_delete',{'table_name':metaData.tableUrl})}}';
     </script>
 
     <div  class ="row">
